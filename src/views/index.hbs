@@ -1,0 +1,45 @@
+{{#if error}} 
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong> {{error}}</strong> 
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+<div class="p-4 p-md-5 mb-4 container text-white rounded"
+    style="color:#010101 !important; background-color: #ffefbb !important">
+    <div class="row">        
+            <h1 class="display-4">compresión de cadena</h1>
+            <div class="card-body">
+                <form action="/" method="POST">
+                <div class="row">
+                    {{#if inputs}}
+                    <div class="col form-group">
+                        <input type="text" name="str" class="form-control"  onkeypress="return /[a-z]/i.test(event.key)"  style="text-transform: uppercase" placeholder="Caderna" value={{inputs.cadena}}  required autofocus />
+                    </div>
+                    <div class=" col form-group">
+                        <input type="number" name="int" class="form-control" placeholder="int" min="1" max="100" value={{inputs.int}} required>
+                    </div>
+                     {{else}}
+                      <div class="col form-group">
+                        <input type="text" name="str" class="form-control" onkeypress="return /[a-z]/i.test(event.key)" style="text-transform: uppercase" placeholder="Caderna" required  autofocus />
+                    </div>
+                    <div class=" col form-group">
+                        <input type="number" name="int" class="form-control" placeholder="int" min="1" max="100" required >
+                    </div>
+                     {{/if}}
+                </div>
+                    <br>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit">
+                            Comprimir
+                        </button>
+                    </div>
+                </form>
+            </div>
+      
+        {{#if result}}
+       
+            <h1>la compresión más corta sería {{result}} (length={{length}})</h1>
+       
+        {{/if}}
+    </div>
+</div>
